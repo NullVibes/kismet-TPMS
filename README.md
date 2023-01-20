@@ -1,7 +1,7 @@
 # kismet-TPMS
 ### A Kismet plugin for plotting 'dots-on-the-map' of Tire Pressure Monitoring System (TPMS) sensors.
 ##### Prereqs:
-- rtl-sdr, rtl-433, kismet
+- rtl-sdr, rtl-433, kismet, GPS, internet access
 <br /><br />
 ##### Installation:
 Inside the `kismet-TPMS/plugin-kismet-tpms` directory:
