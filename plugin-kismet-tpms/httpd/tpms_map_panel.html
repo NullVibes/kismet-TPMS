@@ -158,7 +158,7 @@
     <div id="map"></div>
     <div class="right-sidebar">
         <div id="plane-count" style="height: 10px">
-        <i class="fa fa-plane" style="padding-right: 1em;"></i><span id="numplanes">0</span> sensors in the past 10 minutes
+        <i class="fa fa-chevron-circle-right" style="padding-right: 1em;"></i><span id="numplanes">0</span> sensors in the past 10 minutes
         </div>
 
         <div id="plane-detail" style="padding-top: 10px; height: 75px;"></div>
@@ -317,8 +317,6 @@
                     });
                 };
 
-                //console.log(markers);
-
                 // $('#adsb_marker_icon_' + kismet.sanitizeId(k)).css('color', 'red');
                 $('#adsb_marker_icon_' + kismet.sanitizeId(k)).css('font-size', '24px');
 
@@ -362,9 +360,6 @@
 
             //$('#numplanes').html(data['kismet.device.base.packets.data']);
             $('#numplanes').html(tpmsTotal);
-
-            // $('#count').html("Active in the last 10 minutes: " + data['kismet.adsb.map.devices'].length);
-            // $('#numplanes').html(data['kismet.device.base.packets.data'].length);
 
             if (!map_configured) {
                 for (var d = 0; d < data.length; d++) {
