@@ -35,7 +35,7 @@ endif
 
 	mkdir -p $(DESTDIR)/$(plugindir)/$(PLUGIN_NAME)/httpd
 	cp -r httpd/* $(DESTDIR)/$(plugindir)/$(PLUGIN_NAME)/httpd
-	cp httpd/tpms_map_panel.html /usr/share/kismet/httpd
+	cp httpd/tpms_map_panel.html /usr/share/kismet/httpd/
 
 userinstall:
 	mkdir -p ${HOME}/.kismet/plugins/$(PLUGIN_NAME)
@@ -43,7 +43,7 @@ userinstall:
 
 	mkdir -p ${HOME}/.kismet/plugins/$(PLUGIN_NAME)/httpd
 	cp -r httpd/js/* $(HOME)/.kismet/plugins/${PLUGIN_NAME}/httpd/js
-	cp httpd/tpms_map_panel.html /usr/share/kismet/httpd
+	cp httpd/tpms_map_panel.html /usr/share/kismet/httpd/
 
 
 clean:
