@@ -22,7 +22,7 @@ kismet_ui.AddDeviceRowHighlight({
         'rtl433.device',
     ],
     selector: function(data) {
-        var aircraft_info = [
+        var target_list = [
 	        '9ff7d658',
         ];
 
@@ -33,7 +33,7 @@ kismet_ui.AddDeviceRowHighlight({
         ];
 
         if (data['kismet.device.base.phyname'] === 'RTL433') {
-            for (var re of aircraft_info) {
+            for (var re of target_list) {
 		        var retval = false;
 		        if (data['rtl433.device']['rtl433.device.common']['rtl433.device.id'].toLowerCase().includes(re)) {
 	                retval = true;
