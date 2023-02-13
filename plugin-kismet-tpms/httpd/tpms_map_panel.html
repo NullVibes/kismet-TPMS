@@ -403,6 +403,7 @@
 
                 dt.clear();
                 
+                //for (var d = 0; d < data['kismet.adsb.map.devices'].length; d++) {
                 for (var d = 0; d < data.length; d++) {
                     try {
                         var lat = data[d]['kismet.device.base.location']['kismet.common.location.last']['kismet.common.location.geopoint'][1];
@@ -410,10 +411,13 @@
                         var heading = data[d]['kismet.device.base.location']['kismet.common.location.last']['kismet.common.location.heading'];
                         var altitude = data[d]['kismet.device.base.location']['kismet.common.location.last']['kismet.common.location.alt'];
                         var speed = data[d]['kismet.device.base.location']['kismet.common.location.last']['kismet.common.location.speed'];
+                        //var icao = data['kismet.adsb.map.devices'][d]['adsb.device']['adsb.device.icao'];
                         var icao = data[d]['kismet.device.base.commonname'];
                         var id = data[d]['rtl433.device']['rtl433.device.common']['rtl433.device.id'];
                         var packets = data[d]['kismet.device.base.packets.data'];
+                        //var atype = data['kismet.adsb.map.devices'][d]['adsb.device']['kismet.adsb.icao_record']['adsb.icao.atype_short'];
                         var atype = 'atype-test';
+                        //console.log([icao, id, altitude, speed, heading, packets]);
 
                         dt.row.add([icao, id, kismet_units.renderHeightDistanceUnitless(altitude, 0), kismet_units.renderSpeedUnitless(speed, 0, true), heading.toFixed(0), packets]);
 
@@ -475,6 +479,7 @@
                         /* Make a new marker */
 
                             var marker = L.marker([lat, lon], { icon: myIcon} ).addTo(map);
+                            //$('#adsb_marker_' + kismet.sanitizeId(key)).css('transform', 'rotate(' + (heading - 45) + 'deg)');
                             $('#adsb_marker_' + kismet.sanitizeId(key)).css('transform', 'rotate(' + (heading - 90) + 'deg)');
 
                             markers[key] = {};
@@ -485,8 +490,11 @@
                             markers[key]['path'] = null;
                             markers[key]['last_path_ts'] = 0;
 
+                            //markers[key]['model'] = data['kismet.adsb.map.devices'][d]['adsb.device']['kismet.adsb.icao_record']['adsb.icao.model'];
                             markers[key]['model'] = 'model';
+                            //markers[key]['operator'] = data['kismet.adsb.map.devices'][d]['adsb.device']['kismet.adsb.icao_record']['adsb.icao.owner'];
                             markers[key]['operator'] = 'oper';
+                            //markers[key]['callsign'] = data['kismet.adsb.map.devices'][d]['adsb.device']['adsb.device.callsign'];
                             markers[key]['callsign'] = 'call';
                             markers[key]['marker'].on('mouseover', wrap_closure_mouseover(key));
                             markers[key]['marker'].on('mouseout', wrap_closure_mouseout(key));
